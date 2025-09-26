@@ -12,27 +12,7 @@ public interface CipherEngine {
      *
      * @param key the secret key as a byte array
      */
-    void init(byte[] key);
-
-    /**
-     * Encrypts a single block of data.
-     *
-     * @param input     the input byte array containing plaintext
-     * @param inOffset  the starting offset in the input array
-     * @param output    the output byte array to hold ciphertext
-     * @param outOffset the starting offset in the output array
-     */
-    void encryptBlock(byte[] input, int inOffset, byte[] output, int outOffset);
-
-    /**
-     * Decrypts a single block of data.
-     *
-     * @param input     the input byte array containing ciphertext
-     * @param inOffset  the starting offset in the input array
-     * @param output    the output byte array to hold plaintext
-     * @param outOffset the starting offset in the output array
-     */
-    void decryptBlock(byte[] input, int inOffset, byte[] output, int outOffset);
+    void init(final boolean forEncryption, final byte[] key);
 
     /**
      * Returns the block size of this cipher in bytes.
@@ -40,4 +20,14 @@ public interface CipherEngine {
      * @return the block size
      */
     int getBlockSize();
+
+    /**
+     * Processes a single block of data.
+     *
+     * @param input     the input byte array
+     * @param inOffset  the offset into the input array
+     * @param output    the output byte array
+     * @param outOffset the offset into the output array
+     */
+    void processBlock(final byte[] input, final int inOffset, final byte[] output, final int outOffset);
 }

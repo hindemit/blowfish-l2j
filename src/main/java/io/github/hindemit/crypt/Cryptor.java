@@ -1,7 +1,5 @@
 package io.github.hindemit.crypt;
 
-import java.io.IOException;
-
 /**
  * Interface representing a generic cryptographic processor.
  *
@@ -25,16 +23,14 @@ public interface Cryptor {
      *
      * @param raw the encrypted data to decrypt
      * @return the decrypted data as a byte array
-     * @throws IOException if an I/O error occurs during decryption
      */
-    byte[] decrypt(final byte[] raw) throws IOException;
+    byte[] decrypt(final byte[] raw);
 
     /**
      * Encrypts the given data.
      *
      * @param raw the plain data to encrypt
      * @return the encrypted data as a byte array
-     * @throws IOException if an I/O error occurs during encryption
      */
-    byte[] crypt(final byte[] raw) throws IOException;
+    byte[] crypt(final byte[] raw);
 }
